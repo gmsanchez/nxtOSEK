@@ -6,7 +6,7 @@
 
 # specify GNU-ARM root directory
 ifndef GNUARM_ROOT
-GNUARM_ROOT = ~/legonxt/gnuarm
+GNUARM_ROOT = ~/nxtOSEK/gnuarm
 #/cygdrive/C/cygwin/GNUARM
 endif
 
