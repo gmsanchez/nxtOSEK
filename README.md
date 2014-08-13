@@ -1,6 +1,6 @@
 # nxtOSEK
 
-Installation instructions for nxtOSEK version 2.18 in Ubuntu 14.04 LTS.
+Installation instructions for [nxtOSEK](http://lejos-osek.sourceforge.net) version 2.18 in Ubuntu 14.04 LTS.
 
 This tutorial is based on the one found at http://lejos-osek.sourceforge.net/installation_linux.htm
 
@@ -30,4 +30,12 @@ fpu/interwork;@mhard-float@mthumb-interwork
 thumb/interwork;@mthumb@mthumb-interwork
 ```
 
-nxtOSEK can be found at http://lejos-osek.sourceforge.net
+## Set up nxtOSEK
+
+We need to install `wine`, to execute `toppers_osek/sg/sg.exe` (parser of the .oil files) and `p7zip-full` to uncompress the lhz file.
+
+`~$ sudo apt-get install wine p7zip-full`
+
+Run the provided script
+
+`~$ sh ./install_nxtosek.sh`
