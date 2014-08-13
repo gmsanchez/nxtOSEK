@@ -19,4 +19,4 @@ cp ecrobot++.mak ./nxtOSEK/ecrobot/
 cp tool_gcc.mak ./nxtOSEK/ecrobot/
 
 # Move nxtOSEK to working directory, uncomment of modify if necessary
-mv nxtOSEK ../
+# mv nxtOSEK ../
