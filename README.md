@@ -12,16 +12,16 @@ The complete process should take at least half an hour and finish with the messa
 
 Install the required libraries by running the following command
 
-`~$ sudo apt-get install build-essential texinfo libgmp-dev libmpfr-dev libppl-dev libcloog-ppl-dev`
+`~/nxtOSEK$ sudo apt-get install build-essential texinfo libgmp-dev libmpfr-dev libppl-dev libcloog-ppl-dev`
 
 Run the provided script.
 
-`~$ sh ./build_arm_toolchain.sh`
+`~/nxtOSEK$ sh ./build_arm_toolchain.sh`
 
 Test the new gcc : this should be the output of `arm-elf-gcc -print-multi-lib` (hard and soft float support)
 
 ```
-~$ ./gnuarm/bin/arm-elf-gcc -print-multi-lib
+~/nxtOSEK$ ./gnuarm/bin/arm-elf-gcc -print-multi-lib
 .;
 thumb;@mthumb
 fpu;@mhard-float
@@ -34,8 +34,8 @@ thumb/interwork;@mthumb@mthumb-interwork
 
 We need to install `wine`, to execute `toppers_osek/sg/sg.exe` (parser of the .oil files) and `p7zip-full` to uncompress the lhz file.
 
-`~$ sudo apt-get install wine p7zip-full`
+`~/nxtOSEK$ sudo apt-get install wine p7zip-full`
 
 Run the provided script
 
-`~$ sh ./install_nxtosek.sh`
+`~/nxtOSEK$ sh ./install_nxtosek.sh`
