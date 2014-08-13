@@ -18,7 +18,7 @@ Run the provided script.
 
 `~$ sh ./build_arm_toolchain.sh`
 
-Test the new gcc : this should be the output of arm-elf-gcc -print-multi-lib (hard and soft float support)
+Test the new gcc : this should be the output of `arm-elf-gcc -print-multi-lib` (hard and soft float support)
 
 ```
 ~$ ./gnuarm/bin/arm-elf-gcc -print-multi-lib
