@@ -58,7 +58,7 @@ export CC=$GCC_BINARY_VERSION
 ROOT=`pwd`
 SRCDIR=$ROOT/src
 BUILDDIR=$ROOT/build
-PREFIX=$ROOT/../gnuarm
+PREFIX=$ROOT/gnuarm
 
 
 ##################################################################
