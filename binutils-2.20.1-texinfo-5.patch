@@ -1,0 +1,209 @@
+From: Stephan Linz <linz@li-pro.net>
+Bug-Debian: http://bugs.debian.org/704586
+Description: Fix FTBFS with texinfo 5
+ This patch combines changes from the following commits from the
+ upstream git repository: baf8679, 935f854, f0fa19a and 2cfdb6d, by
+ Nick Clifton and Andreas Schwab.
+
+Upstream-Status: Backport
+
+diff -purN binutils-2.20.1.orig/bfd/doc/bfd.texinfo binutils-2.20.1/bfd/doc/bfd.texinfo
+--- binutils-2.20.1.orig/bfd/doc/bfd.texinfo	2009-09-02 09:18:38.000000000 +0200
++++ binutils-2.20.1/bfd/doc/bfd.texinfo	2014-05-21 20:50:36.248174413 +0200
+@@ -323,7 +323,7 @@ All of BFD lives in one directory.
+ @printindex cp
+ 
+ @tex
+-% I think something like @colophon should be in texinfo.  In the
++% I think something like @@colophon should be in texinfo.  In the
+ % meantime:
+ \long\def\colophon{\hbox to0pt{}\vfill
+ \centerline{The body of this manual is set in}
+@@ -334,7 +334,7 @@ All of BFD lives in one directory.
+ \centerline{{\sl\fontname\tensl\/}}
+ \centerline{are used for emphasis.}\vfill}
+ \page\colophon
+-% Blame: doc@cygnus.com, 28mar91.
++% Blame: doc@@cygnus.com, 28mar91.
+ @end tex
+ 
+ @bye
+diff -purN binutils-2.20.1.orig/gas/doc/c-arc.texi binutils-2.20.1/gas/doc/c-arc.texi
+--- binutils-2.20.1.orig/gas/doc/c-arc.texi	2009-09-02 09:24:21.000000000 +0200
++++ binutils-2.20.1/gas/doc/c-arc.texi	2014-05-21 20:50:36.248174413 +0200
+@@ -212,7 +212,7 @@ The extension instructions are not macro
+ encodings for use of these instructions according to the specification
+ by the user.  The parameters are:
+ 
+-@table @bullet
++@itemize @bullet
+ @item @var{name}
+ Name of the extension instruction 
+ 
+@@ -271,7 +271,7 @@ code were: inst 0,r1,r2.  You use OP1_IM
+ with SYNTAX_20P.
+ 
+ @end itemize 
+-@end table
++@end itemize
+ 
+ For example, defining 64-bit multiplier with immediate operands:
+ 
+diff -purN binutils-2.20.1.orig/gas/doc/c-arm.texi binutils-2.20.1/gas/doc/c-arm.texi
+--- binutils-2.20.1.orig/gas/doc/c-arm.texi	2009-09-02 09:24:21.000000000 +0200
++++ binutils-2.20.1/gas/doc/c-arm.texi	2014-05-21 21:58:13.598179653 +0200
+@@ -337,7 +337,7 @@ ARM and THUMB instructions had their own
+ @code{unified} syntax, which can be selected via the @code{.syntax}
+ directive, and has the following main features:
+ 
+-@table @bullet
++@itemize @bullet
+ @item
+ Immediate operands do not require a @code{#} prefix.
+ 
+@@ -362,7 +362,7 @@ The @code{.N} and @code{.W} suffixes are
+ @item
+ All instructions set the flags if and only if they have an @code{s}
+ affix.
+-@end table
++@end itemize
+ 
+ @node ARM-Chars
+ @subsection Special Characters
+@@ -394,13 +394,6 @@ Either @samp{#} or @samp{$} can be used 
+ @cindex register names, ARM
+ *TODO* Explain about ARM register naming, and the predefined names.
+ 
+-@node ARM Floating Point
+-@section Floating Point
+-
+-@cindex floating point, ARM (@sc{ieee})
+-@cindex ARM floating point (@sc{ieee})
+-The ARM family uses @sc{ieee} floating-point numbers.
+-
+ @node ARM-Relocations
+ @subsection ARM relocation generation
+ 
+@@ -442,6 +435,13 @@ respectively.  For example to load the 3
+         MOVT r0, #:upper16:foo
+ @end smallexample
+ 
++@node ARM Floating Point
++@section Floating Point
++
++@cindex floating point, ARM (@sc{ieee})
++@cindex ARM floating point (@sc{ieee})
++The ARM family uses @sc{ieee} floating-point numbers.
++
+ @node ARM Directives
+ @section ARM Machine Directives
+ 
+diff -purN binutils-2.20.1.orig/gas/doc/c-mips.texi binutils-2.20.1/gas/doc/c-mips.texi
+--- binutils-2.20.1.orig/gas/doc/c-mips.texi	2009-09-28 12:23:57.000000000 +0200
++++ binutils-2.20.1/gas/doc/c-mips.texi	2014-05-21 20:50:36.248174413 +0200
+@@ -201,7 +201,7 @@ the @samp{mad} and @samp{madu} instructi
+ instructions around accesses to the @samp{HI} and @samp{LO} registers.
+ @samp{-no-m4650} turns off this option.
+ 
+-@itemx -m3900
++@item -m3900
+ @itemx -no-m3900
+ @itemx -m4100
+ @itemx -no-m4100
+diff -purN binutils-2.20.1.orig/gas/doc/c-score.texi binutils-2.20.1/gas/doc/c-score.texi
+--- binutils-2.20.1.orig/gas/doc/c-score.texi	2009-03-02 11:33:07.000000000 +0100
++++ binutils-2.20.1/gas/doc/c-score.texi	2014-05-21 20:50:36.248174413 +0200
+@@ -36,7 +36,7 @@ implicitly with the @code{gp} register. 
+ @item -EB
+ Assemble code for a big-endian cpu
+ 
+-@itemx -EL
++@item -EL
+ Assemble code for a little-endian cpu
+ 
+ @item -FIXDD 
+@@ -48,13 +48,13 @@ Assemble code for no warning message for
+ @item -SCORE5
+ Assemble code for target is SCORE5
+ 
+-@itemx -SCORE5U
++@item -SCORE5U
+ Assemble code for target is SCORE5U
+ 
+-@itemx -SCORE7
++@item -SCORE7
+ Assemble code for target is SCORE7, this is default setting
+ 
+-@itemx -SCORE3
++@item -SCORE3
+ Assemble code for target is SCORE3
+ 
+ @item -march=score7
+diff -purN binutils-2.20.1.orig/gas/doc/c-tic54x.texi binutils-2.20.1/gas/doc/c-tic54x.texi
+--- binutils-2.20.1.orig/gas/doc/c-tic54x.texi	2009-09-02 09:24:21.000000000 +0200
++++ binutils-2.20.1/gas/doc/c-tic54x.texi	2014-05-21 20:50:36.248174413 +0200
+@@ -108,7 +108,7 @@ In this example, x is replaced with SYM2
+ is replaced with x.  At this point, x has already been encountered
+ and the substitution stops.
+ 
+-@smallexample @code
++@smallexample
+  .asg   "x",SYM1 
+  .asg   "SYM1",SYM2
+  .asg   "SYM2",x
+@@ -125,14 +125,14 @@ Substitution may be forced in situations
+ ambiguous by placing colons on either side of the subsym.  The following
+ code: 
+ 
+-@smallexample @code
++@smallexample
+  .eval  "10",x
+ LAB:X:  add     #x, a
+ @end smallexample
+ 
+ When assembled becomes:
+ 
+-@smallexample @code
++@smallexample
+ LAB10  add     #10, a
+ @end smallexample
+ 
+@@ -308,7 +308,7 @@ The @code{LDX} pseudo-op is provided for
+ of a label or address.  For example, if an address @code{_label} resides
+ in extended program memory, the value of @code{_label} may be loaded as
+ follows:
+-@smallexample @code
++@smallexample
+  ldx     #_label,16,a    ; loads extended bits of _label
+  or      #_label,a       ; loads lower 16 bits of _label
+  bacc    a               ; full address is in accumulator A
+@@ -344,7 +344,7 @@ Assign @var{name} the string @var{string
+ performed on @var{string} before assignment.
+ 
+ @cindex @code{eval} directive, TIC54X
+-@itemx .eval @var{string}, @var{name}
++@item .eval @var{string}, @var{name}
+ Evaluate the contents of string @var{string} and assign the result as a
+ string to the subsym @var{name}.  String replacement is performed on
+ @var{string} before assignment. 
+diff -purN binutils-2.20.1.orig/ld/ld.texinfo binutils-2.20.1/ld/ld.texinfo
+--- binutils-2.20.1.orig/ld/ld.texinfo	2009-07-06 15:48:51.000000000 +0200
++++ binutils-2.20.1/ld/ld.texinfo	2014-05-21 20:50:36.248174413 +0200
+@@ -7509,7 +7509,7 @@ If you have more than one @code{SECT} st
+ @printindex cp
+ 
+ @tex
+-% I think something like @colophon should be in texinfo.  In the
++% I think something like @@colophon should be in texinfo.  In the
+ % meantime:
+ \long\def\colophon{\hbox to0pt{}\vfill
+ \centerline{The body of this manual is set in}
+@@ -7520,7 +7520,7 @@ If you have more than one @code{SECT} st
+ \centerline{{\sl\fontname\tensl\/}}
+ \centerline{are used for emphasis.}\vfill}
+ \page\colophon
+-% Blame: doc@cygnus.com, 28mar91.
++% Blame: doc@@cygnus.com, 28mar91.
+ @end tex
+ 
+ @bye
