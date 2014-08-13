@@ -4,6 +4,14 @@ Installation instructions for [nxtOSEK](http://lejos-osek.sourceforge.net) versi
 
 This tutorial is based on the one found at http://lejos-osek.sourceforge.net/installation_linux.htm
 
+## Clone nxtOSEK repository
+
+```
+~$ git clone https://github.com/gmsanchez/nxtOSEK.git
+~$ cd nxtOSEK
+```
+
+
 ## Build and Install GNU ARM
 
 [GNU ARM](http://www.gnuarm.com/) is a distribution of GCC (GNU Compiler Collection) for ARM core and it supports the ARM7 CPU inside the NXT. 
