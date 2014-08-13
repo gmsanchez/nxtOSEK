@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Download the required files
-sudo apt-get install wine
+# sudo apt-get install wine p7zip-full
 wget -c http://downloads.sourceforge.net/project/lejos-osek/nxtOSEK/nxtOSEK_v218.zip
 wget -c http://www.toppers.jp/download.cgi/atk1-1.0.lzh
 
