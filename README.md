@@ -47,3 +47,21 @@ We need to install `wine` to execute `toppers_osek/sg/sg.exe` (parser of the .oi
 Run the provided script
 
 `~/nxtOSEK$ sh ./install_nxtosek.sh`
+
+If you wish to change the GNU ARM compiler directory, you must update the file `tool_gcc.mak` under `ecrobot` directory to specify with the variable `GNUARM_ROOT` the path to the installed GNU ARM directory.
+
+```
+# specify GNU-ARM root directory
+ifndef GNUARM_ROOT
+GNUARM_ROOT = /[absolute path to parent directory of gnuarm]/gnuarm
+endif
+```
+
+To test the installation, change directory to `nxtOSEK/samples_c/helloworld` directory and build binary executables of helloworld sample
+
+```
+~nxtOSEK$ cd ./nxtOSEK/samples_c/helloworld 
+~nxtOSEK/nxtOSEK/samples_c/helloworld$ make all
+```
+
+If everything went well, binary executables (`helloworld.rxe`) and program upload scripts should be generated in the directory.
