@@ -117,7 +117,7 @@ ensure_source()
     FILE=$(basename $1)
 
     if [ ! -e $FILE ]; then
-        wget $URL  #or curl -L -O $URL
+        wget -c $URL  #or curl -L -O $URL
     fi
 }
 
