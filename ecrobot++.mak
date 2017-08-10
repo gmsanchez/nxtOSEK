@@ -1,4 +1,4 @@
-# Common Makefile for C/CPP(*.cpp) with TOPPERS ATK(OSEK) and JSP(ƒÊITRON)
+# Common Makefile for C/CPP(*.cpp) with TOPPERS ATK(OSEK) and JSP(Æ’ÃŠITRON)
 
 #
 ## ROOT path configurations
@@ -304,7 +304,7 @@ $(RXEBIN_TARGET): $(RXE_TARGET)
 
 # on Linux, use wine to run the windows application
 ifneq "$(OS)" "Windows_NT"
-WINECONSOLE := wineconsole
+WINECONSOLE := wine
 endif
 
 # Detect OS name 
