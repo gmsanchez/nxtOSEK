@@ -104,7 +104,7 @@ echo "I will build an arm-elf cross-compiler:
   Host compiler : $GCC_BINARY_VERSION
 
 Press ^C now if you do NOT want to do this or any key to continue."
-read IGNORE
+# read IGNORE
 
 ##################################################################
 # Helper functions.
