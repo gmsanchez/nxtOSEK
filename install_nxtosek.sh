@@ -2,8 +2,14 @@
 
 # Download the required files
 # sudo apt-get install wine p7zip-full
-wget -c http://downloads.sourceforge.net/project/lejos-osek/nxtOSEK/nxtOSEK_v218.zip
-wget -c http://www.toppers.jp/download.cgi/atk1-1.0.lzh
+# wget -c http://downloads.sourceforge.net/project/lejos-osek/nxtOSEK/nxtOSEK_v218.zip
+# wget -c http://www.toppers.jp/download.cgi/atk1-1.0.lzh
+if [ ! -e "nxtOSEK_v218.zip" ] ; then
+    wget -c "http://downloads.sourceforge.net/project/lejos-osek/nxtOSEK/nxtOSEK_v218.zip"
+fi
+if [ ! -e "atk1-1.0.lzh" ] ; then
+    wget -c "http://www.toppers.jp/download.cgi/atk1-1.0.lzh"
+fi
 
 # Uncompress them
 unzip nxtOSEK_v218.zip
