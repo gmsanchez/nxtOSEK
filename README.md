@@ -20,7 +20,7 @@ The complete process should take at least half an hour and finish with the messa
 
 Install the required libraries by running the following command
 
-`~/nxtOSEK$ sudo apt-get install build-essential texinfo libgmp-dev libmpfr-dev libppl-dev libcloog-ppl-dev`
+`~/nxtOSEK$ sudo apt-get install build-essential texinfo libgmp-dev libmpfr-dev libppl-dev libcloog-ppl-dev gcc-4.8`
 
 Run the provided script.
 
